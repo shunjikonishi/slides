@@ -37,7 +37,7 @@ http://nodejs.org/
 - カレントフォルダにパッケージをインストールした場合は「node_modules」というフォルダが生成されてそこに保存される
 
 ---
-### npm install
+### grunt-cliをインストール
 - 前準備としてgrunt-cliをグローバルインストール
 ``` bash
 npm install -g grunt-cli
@@ -60,15 +60,15 @@ npm install --save-dev grunt-contrib-watch
 
 ---
 ### 「--save-dev」って何？
-- このオプションを付けるとインストールと同時にpackage.jsonの「devDependencies」にパッケージ情報を追加してくれる
+- このオプションを付けるとインストールと同時に*package.jsonの「devDependencies」にパッケージ情報を追加*してくれる
 - package.jsonに依存性情報が書かれている場合引数なしで「npm install」を実行することですべてのパッケージをインストールしてくれる
-- 「--save」とすると「devDependencies」ではなく、「dependencies」に追加されるが、こちらはnode.jsアプリを作成する場合に使用するものなのでGruntを使いたいだけの場合は使用しない
+- ちなみに「--save」とすると「devDependencies」ではなく、「dependencies」に追加されるが、こちらはnode.jsアプリを作成する場合に使用するものなのでGruntを使いたいだけの場合は使用しない
   - もちろん後からpackage.jsonを直接編集しても良い
   
 ---
 ### 何でローカルインストール？
 - gruntとかgrunt-contrib-watchは毎回使うからグローバルインストールで良いのでは？と思うかもしれないが。。。
-  - とにかくバージョンアップが早いので数カ月もすると互換性の問題がでたり
+  - とにかく*バージョンアップが早い*ので数カ月もすると互換性の問題がでたり
   - 自分の環境でグローバルにあっても人の環境にもあるとは限らない
   - package.jsonでの依存性管理の恩恵が薄れる
 - Grunt関係でグローバルインストールが許されるのは「grunt-cli」のみ
@@ -82,6 +82,7 @@ npm install --save-dev grunt-contrib-watch
 ``` javascript
 module.exports = function(grunt) {
     grunt.initConfig({
+        //package.jsonのロード(必須ではない)
         pkg: grunt.file.readJSON('package.json'),
         //タスクの設定
     });
@@ -169,7 +170,7 @@ grunt watch
 ***
 - 。。。が、とにかくバージョンアップが早いので内容が古いケースが多々ある。 
 - 必ず一度はGitHubのREADMEを確認すること。
-- ヒット率の高いタスクでも*deprecated*となっていることも多い。
+- *検索ヒット率の高いタスクでもdeprecated*となっていることも多い。
 
 ---
 ### grunt watchでファイル監視
@@ -201,7 +202,7 @@ watch: {
   - ブラウザにGruntからリロードしてね、と通知が行くだけ
   - LiveReloadしたいタブで有効化(localhost以外を表示中は有効にならないっぽい)
 - HTML内にLiveReload用のscriptタグを挿入する方法もあるが使ったことがない
-  - というか使うべきではない
+  - というか開発時にのみ必要となる機能をscriptタグで差し込むべきではない
 
 ---
 ### さらに進んだ使い方
@@ -235,6 +236,7 @@ grunt.registerTask('foo', 'A sample task that logs stuff.', function(arg1, arg2)
   }
 });
 ```
+- 条件によって動的にタスクを変更することも可能
 - 実行コマンド  
   - 引数は「:」区切りで指定
 
@@ -248,6 +250,7 @@ foo, hoge fuga
 ---
 ### Gitで使う場合
 - node_modulesフォルダを .gitignoreに追加
+- Gruntを使うだけなら実はpackage.jsonは必須ではないが依存性を管理するために必ず作成する
 - clone後に「grunt install」とするだけで環境が整う
 
 ---
