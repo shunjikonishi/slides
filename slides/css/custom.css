@@ -1,0 +1,54 @@
+.reveal, .reveal h1, .reveal h2, .reveal h3 {
+  font-family: 'ヒラギノ角ゴ Pro', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Osaka, Verdana, Helvetica, Arial, sans-serif;
+}
+
+.reveal table {
+  margin: auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.reveal table th {
+  font-weight: bold;
+}
+
+.reveal table th,
+.reveal table td {
+  text-align: left;
+  padding: 0.2em 0.5em 0.2em 0.5em;
+  border-bottom: 1px solid;
+}
+
+.reveal table tr:last-child td {
+    border-bottom: none;
+}
+
+.reveal em {
+    font-style: normal;
+    font-weight: bold;
+    color: #F00;
+}
+
+.reveal blockquote {
+    width: 90%;
+    margin: 20px auto 10px auto;
+    padding: 10px;
+    font-style: normal;
+    font-size: smaller;
+    background: #FFF;
+}
+
+/*********************************************
+ * GLOBAL STYLES
+ *********************************************/
+body {
+  background: #9283a5;
+  background: -moz-radial-gradient(center, circle cover, #c6ccd1 0%, #9283a5 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #c6ccd1), color-stop(100%, #9283a5));
+  background: -webkit-radial-gradient(center, circle cover, #c6ccd1 0%, #9283a5 100%);
+  background: -o-radial-gradient(center, circle cover, #c6ccd1 0%, #9283a5 100%);
+  background: -ms-radial-gradient(center, circle cover, #c6ccd1 0%, #9283a5 100%);
+  background: radial-gradient(center, circle cover, #c6ccd1 0%, #9283a5 100%);
+  background-color: #9283a5; 
+}
+
