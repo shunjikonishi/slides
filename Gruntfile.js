@@ -18,16 +18,16 @@ module.exports = function (grunt) {
       },
       livereload: {
         files: [
-          'slides/{,*/}*.html',
-          'slides/css/{,*/}*.css',
-          'slides/{,*/}*.md',
+          './{,*/}*.html',
+          './css/{,*/}*.css',
+          './{,*/}*.md',
         ]
       }
     },
     connect: {
       options: {
         port: 9000,
-        base:'slides',
+        base:'.',
         // change this to '0.0.0.0' to access the server from outside
         hostname: '0.0.0.0'
       },
@@ -44,7 +44,7 @@ module.exports = function (grunt) {
     },
     open: {
       server: {
-        path: 'http://localhost:<%= connect.options.port %>/slides/'
+        path: 'http://localhost:<%= connect.options.port %>/'
       }
     }
   });
