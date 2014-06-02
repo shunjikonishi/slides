@@ -34,7 +34,6 @@ flect.html.DrawCanvas = function(target, wsUrl, options) {
 		} else {
 			x = e.pageX - offset.left;
 			y = e.pageY - offset.top;
-console.log("test: (" + x + ", " + y + "), (" + e.pageX + ", " + e.pageY + "), (" + offset.left + ", " + offset.top + ")");
 		}
 		if (drawInfo.spos == null) {
 			drawInfo.spos = { "x" : x, "y" : y};

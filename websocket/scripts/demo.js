@@ -33,8 +33,19 @@ function buildDemo() {
 			drawCanvas.clear();
 		});
 	}
+	function buildSequence() {
+		$(".sequence").each(function() {
+			var id = $(this).attr("id"),
+				text = $("#" + id + "-src").text(),
+				diagram = Diagram.parse(text);
+			diagram.drawSVG(id, {
+				"theme" : "simple"
+			});
+		});
+	}
 
 	makeTimer();
 	embedVideo();
 	buildCanvas();
+	buildSequence();
 }

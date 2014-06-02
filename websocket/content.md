@@ -19,10 +19,7 @@
 - HerokuとWebSocket
   
 ---
-### WebSocketアプリの典型的なモデル
-- ルームモデル<br>同じ部屋に複数のクライアントが存在して何らかのコラボレーションを行うモデル
-
-<img src="images/roommodel.png" style="width: 600px;height:400px;"/>
+### WebSocketアプリサンプル
 
 ---
 ### お絵描きツール
@@ -38,6 +35,7 @@
   </div>
 </div>
 
+※スケールが変わっているためこの画面ではマウスの位置と描画がずれることがあります。
 ---
 ### Quizar
 - http://quizar.info/
@@ -53,15 +51,26 @@
 <img src="images/reveal.png" style="width: 600px;height:400px;"/>
 
 ---
-### npmの使い方
-- init, install, uninstall, list以外のコマンドを使ったことがない
-  - npm init: package.jsonの生成
-  - npm install: パッケージのインストール
-  - npm uninstall: パッケージのアンインストール
-  - npm list: インストールされたパッケージの一覧表示
-***
-- install, uninstall, listはオプションとして「-g」をつけるとグローバル(OSユーザーフォルダ)が対象となり、付けない場合はカレントフォルダが対象となる
-- カレントフォルダにパッケージをインストールした場合は「node_modules」というフォルダが生成されてそこに保存される
+### ルームモデル
+- WebSocketアプリの典型的なモデル
+- 同じ部屋に複数のクライアントが存在して何らかのコラボレーションを行うモデル
+- 各クライアントのロールは同じとは限らない
+
+<img src="images/roommodel.png" style="width: 600px;height:400px;"/>
+
+---
+### WebSocket通信のパターン
+
+---
+### ブロードキャスト
+<div id="broadcast-src" style="display:none"> 
+Client A->Server A:Message
+Server A->Room:Broadcast
+Room->Server B:Broadcast
+Server B->Client B:Message
+</div> 
+<div id="broadcast" class="sequence" style="background: #ffffff;"> 
+</div> 
 
 ---
 ### npm install
