@@ -42,6 +42,14 @@
   color: #5858FA!important;
 }
 
+.reveal .padTop {
+  padding-top: 15px;
+}
+
+.reveal .sequence {
+  background: #ffffff;
+}
+
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
