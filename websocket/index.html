@@ -43,9 +43,18 @@
   <script src="//cdn.jsdelivr.net/underscorejs/1.6.0/underscore-min.js"></script> 
   <script src="//cdnjs.cloudflare.com/ajax/libs/js-sequence-diagrams/1.0.4/sequence-diagram-min.js"></script> 
     <script>
-
+$(function() {
       // Full list of configuration options available here:
       // https://github.com/hakimel/reveal.js#configuration
+      Reveal.addEventListener("ready", function(event) {
+          $("a").each(function() {
+              var href = $(this).attr("href");
+              if (href.indexOf("http") != 0) {
+                  $(this).attr('target', '_blank');
+              }
+          });
+          buildDemo();
+      });
       Reveal.initialize({
         controls: true,
         progress: true,
@@ -70,16 +79,7 @@
           // { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
         ]
       });
-      Reveal.addEventListener("ready", function(event) {
-          $("a").each(function() {
-              var href = $(this).attr("href");
-              if (href.indexOf("http") != 0) {
-                  $(this).attr('target', '_blank');
-              }
-          });
-          buildDemo();
-      });
-
+});
     </script>
 </body>
 </html>

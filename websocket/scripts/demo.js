@@ -1,19 +1,33 @@
 function buildDemo() {
-	var END_TIME = new Date(2014, 5, 2, 18, 0, 0).getTime();
+	var endTime = new Date(2014, 5, 3, 21, 30, 0).getTime();
+	var slideCount = 32;
+
 	function makeTimer() {
-		var $timer = $("<div class='timer'></div>");
+		var $timer = $("<div class='timer'><div class='clock'/><div class='perSlide'/></div>"),
+			$clock = $timer.find("div:first"),
+			$perSlide = $timer.find("div:last");
+		$(".reveal").after($timer);
+
 		setInterval(function() {
 			var text = "",
-				t = END_TIME - new Date().getTime();
+				t = endTime - new Date().getTime();
 			if (t > 0) {
 				var min = Math.floor(t / 60000),
 					sec = Math.floor(t / 1000) % 60;
 				min = min < 10 ? "0" + min : "" + min;
 				sec = sec < 10 ? "0" + sec : "" + sec;
-				$timer.text(min + ":" + sec);
+				$clock.text(min + ":" + sec);
 			}
 		}, 1000);
-		$(".reveal").after($timer);
+		Reveal.addEventListener("slidechanged", function(event) {
+			var text = "",
+				t = endTime - new Date().getTime(),
+				n = slideCount - event.indexh;
+			if (t > 0 && n > 0) {
+				text = Math.floor(t / n / 1000) + "秒／枚"
+			}
+			$perSlide.text(text);
+		});
 	}
 	function embedVideo() {
 		var $iframe = $("<iframe/>");
@@ -43,9 +57,27 @@ function buildDemo() {
 			});
 		});
 	}
+	function intervalDemo() {
+		var time = new Date().getTime(),
+			cnt = 0,
+			$cntTimer = $("#cntTimer"),
+			$timeTimer = $("#timeTimer");
+
+		setInterval(function() {
+			var t = new Date().getTime() - time;
+			cnt++;
+			$cntTimer.text(cnt);
+			$timeTimer.text((Math.floor(t / 100) / 10));
+		}, 100);
+		$("#resetTimer").click(function() {
+			time = new Date().getTime();
+			cnt = 0;
+		});
+	}
 
 	makeTimer();
 	embedVideo();
 	buildCanvas();
 	buildSequence();
+	intervalDemo();
 }

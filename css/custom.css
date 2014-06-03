@@ -30,11 +30,10 @@
 }
 
 .reveal blockquote {
-    width: 90%;
     margin: 20px auto 10px auto;
     padding: 10px;
     font-style: normal;
-    font-size: smaller;
+    font-size:14pt;
     background: #FFF;
 }
 
