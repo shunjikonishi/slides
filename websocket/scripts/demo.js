@@ -29,16 +29,6 @@ function buildDemo() {
 			$perSlide.text(text);
 		});
 	}
-	function embedVideo() {
-		var $iframe = $("<iframe/>");
-		$iframe.attr({
-			"src" : "//www.youtube.com/embed/tWoEzYr3rps",
-			"width" : 560,
-			"height" : 315,
-			"frameborder" : 0
-		});
-		$("#quizar-video").append($iframe);
-	}
 	function buildCanvas() {
 		var wsUrl = "ws://room-sandbox.herokuapp.com/shunjikonishi/egokorogaarimasen",
 			drawCanvas = new flect.html.DrawCanvas("#pad2", wsUrl);
@@ -76,7 +66,6 @@ function buildDemo() {
 	}
 
 	makeTimer();
-	embedVideo();
 	buildCanvas();
 	buildSequence();
 	intervalDemo();

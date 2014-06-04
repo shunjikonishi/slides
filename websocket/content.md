@@ -35,14 +35,28 @@
   </div>
 </div>
 
-> ※スケールが変わるためこの画面ではマウスの位置と描画がずれることがあります。
+<div class="alert alert-danger">
+※スケールが変わるためこの画面ではマウスの位置と描画がずれることがあります。
+</div>
+
+-->
+### こんなスライドも書きました
+
+[一番簡単なWebSocketの試し方](https://www.slideshare.net/shunjikonishi/websocket-34998961)
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/34998961" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px 1px 0; margin-bottom:5px; max-width: 100%;"> </iframe> 
 
 ---
 ### Quizar
 - http://quizar.info/
 - ルーム内に出題者と回答者がいるクイズゲーム
 
-<div id="quizar-video"></div>
+<iframe src="http://www.quizar.info/room/3/ranking" width="560" height="400" frameborder="1"></iframe>
+
+-->
+### 紹介ビデオ
+
+<iframe src="//www.youtube.com/embed/tWoEzYr3rps" width="560" height="315" frameborder="0"></iframe>
 
 ---
 ### このプレゼン
@@ -78,18 +92,10 @@
 
 ---
 ### 解答例
-素直に書くと以下のような感じ。。。
+素直に書くと以下のようになる
 
-<div id="simple-src" style="display:none"> 
-participant 出題者
-participant Server
-participant 回答者
-participant 観覧者
-出題者->Server:Message
-Server->回答者:Message
-</div> 
-<div id="simple" class="sequence"> 
-</div> 
+<img src="images/simple.svg" style="background-color:#fff;border:none;">
+
 <div class="padTop">
 間違ってないが。。。
 </div>
@@ -97,27 +103,15 @@ Server->回答者:Message
 ---
 ### 常に間にルームを置いて考える
 
-<div id="room-src" style="display:none"> 
-participant 出題者
-participant Server
-participant Room
-participant Server'
-participant 回答者
-participant 観覧者
-participant 出題者'
-出題者->Server:Message
-Server->>Room:Publish
-Room->>Server':Broadcast
-Server'->回答者:Message
-</div> 
-<div id="room" class="sequence"> 
-</div>
+<img src="images/withRoom.svg" style="background-color:#fff;border:none;">
 
 - Roomは単純なメッセージブロードキャスト機構
 - Serverが単一ホストの場合でも常にルームを介してブロードキャストする
 - 送信元の出題者と出題者は同じクライアントだが別のエンティティとして考える
 
+<div class="padTop fragment" data-fragment-index="1">
 *このように考えることには2つのメリットがある*
+</div>
 
 ---
 ### メリット1: スケールアウト
@@ -130,23 +124,9 @@ Server'->回答者:Message
 ### メリット2: シンプル
 Roomの右側と左側のシーケンスを別に考えることができる
 
-<div id="sender-src" style="display:none"> 
-title: Sender
-Client->Server:Message
-Server->Room:Publish
-Server-->Client: or Response
-</div> 
-<div id="receiver-src" style="display:none"> 
-title: Receiver
-Room->Server:Broadcast
-Server->Client:Message
-Note over Server:or Dispose
-</div> 
 <div>
-  <div id="sender" class="sequence" style="display:inline-block;"> 
-  </div>
-  <div id="receiver" class="sequence" style="display:inline-block;"> 
-  </div>
+  <img src="images/roomLeft.svg" style="background-color:#fff;border:none;">
+  <img src="images/roomRight.svg" style="background-color:#fff;border:none;">
 </div>
 
 <div class="padTop">
@@ -177,15 +157,21 @@ Note over Server:or Dispose
 - 通信内容を保護したい場合はwssを使用する
 
 ---
-### 閑話休題
-WebSocketとXSSのコンボはやばすぎる
+### 脱線
+WebSocketとXSSのコンボがやばすぎる件
 
-``` JavaScript
+``` javascript
 var ws = new WebSocket("ws://...");
 ws.onmessage = function(event){
-  eval(event.data);//外部からajax通信を含む任意のスクリプトが実行できる
+  //WebSocket経由でスクリプトを受信し
+  //ajax通信を含む任意のスクリプトが実行できる!
+  eval(event.data);
 }
-$.ajax = function(v) { //正規の通信を行いつつwsに通信内容を横流し}
+$.ajax = function(v) { 
+  //jQueryのajaxメソッドを差し替えて
+  //正規の通信を行いつつWebSocketにデータを横流し
+  ...
+}
 ```
 
 XSS脆弱性はそもそも存在してはならないが、  
@@ -200,7 +186,7 @@ WebSocketがあることでリスク激増！
   - トークンはSessionIdとひもづけてMemcached等に保存
 - ws接続確立時(onopenイベント)でトークンを送信
   - サーバ側でSessionIdとトークンを検証
-  - 成功時のレスポンスでは新たに生成したトークンを返す
+  - *成功時のレスポンスでは新たに生成したトークンを返して置き換える*
 - なんらかの理由で切断があって再接続した場合も同様にonopenでトークンを送信
 
 ---
@@ -218,7 +204,7 @@ $(document).ready(function() {
 });
 ```
 
-- WebSocketは通常クロージャの中で生成されるためそのインスタンスにはクロージャ外部からはアクセスできない
+- WebSocketは通常*クロージャの中で生成される*ためそのインスタンスにはクロージャ外部からはアクセスできない
   - 仮にXSSの脆弱性があったとしても既存のインスタンスにはアクセスできない
   - トークンは検証毎に置き換えるので新たな接続を確立することもできない
   - ということは*検証後のリクエストは常にValid*
@@ -227,16 +213,19 @@ $(document).ready(function() {
   - リクエスト毎の検証が必須
 
 ---
-### WebSocket APIでのセキュリティチェック
+### WebSocket APIでの<br>セキュリティチェック
 - セッションの検証
   - 接続時に検証すればその後は不要
-- パラメータの検証
+- Formパラメータの検証
   - クライアント側でチェックしていれば不要
   - ただしクライアント側にバグがある可能性を考慮して行うべき
 - CSRFチェック
   - もちろん不要
 
-> REST APIがpublicメソッドなのに対し、privateメソッドのイメージ
+<div class="alert alert-success" style="font-size:18pt;">
+感覚的にはREST APIがpublicメソッドなのに対し、privateメソッドのイメージ
+</div>
+
 
 ---
 ### 切断のパターンとその対処
@@ -248,12 +237,14 @@ heroku labs:enable websockets -a xxxx
 ```
 
 - WebSocketを使うためにはlabsコマンドで有効化が必要
-- 1日に1度以上Dyno再起動があるのでそのタイミングで接続していたクライアントは切れる
-- 接続確立後も無通信状態が55秒続くと切れる
-- デプロイや環境変数の変更でもDynoが再起動して切れる
+- 1日に1度以上Dyno再起動があるのでそのタイミングで接続していたクライアントは*切れる*
+- 接続確立後も無通信状態が55秒続くと*切れる*
+- デプロイや環境変数の変更でもDynoが再起動して*切れる*
 - Herokuの良いところはスケールアウトに対応しやすいところ
 
+<div class="padTop fragment">
 安定した接続を要求するアプリの場合はHerokuは向かない
+</div>
 
 ---
 ### クライアント側の切断要因
@@ -261,22 +252,23 @@ heroku labs:enable websockets -a xxxx
 - 携帯端末のスリープ
 - スマホで長時間ブラウザをインアクティブにする
 - 通信環境不良／WiFiからの切断
-- 一方でAndroid Chromeのようにスリープしてもずっと切断されない端末もある
+- 一方でAndroid Chromeのようにスリープしてもずっと切断されない端末もある<br>
+  (どの程度端末依存があるかは未知数)
 
-<div class="padTop"></div>
-
+<div class="padTop fragment">
 携帯端末をターゲットに含めるなら安定した接続を期待することはできない
+</div>
 
 ---
 ### デプロイ
 - 近年アプリのリリース頻度は日に数回というレベルまである位に増える傾向
 - よっぽど人気のないアプリでもない限りリリース時に接続ユーザがいないという状況は期待できない
+  - リリースサイクルを分けるためにHttpサーバとWebSocketサーバを分離するという選択はあり得る
 
-<div class="padTop"></div>
+<div class="padTop fragment">
+  <p>結局のところ*不測の切断に対する考慮はすべてのWebSocketアプリで必要*</p>
+</div>
 
-結局のところ*不測の切断に対する考慮はすべてのWebSocketアプリで必要*
-
-> まったく別の議論としてリリースサイクルを変えるためにWebSocketサーバとHttpサーバを分離するという選択はありえる
 
 ---
 ### 基本戦略
@@ -284,6 +276,7 @@ heroku labs:enable websockets -a xxxx
   - WebSocket#oncloseイベントで再接続
   - 時間をおいて数回リトライする
   - 接続確立後はトークンを検証する
+  - スマホで非アクティブの場合は再接続しない
 
 ---
 ### 無通信回避のためのポーリング
@@ -306,46 +299,57 @@ heroku labs:enable websockets -a xxxx
 - Androidはバックグラウンドでの実行遅延が特に顕著
 - iOSはバックグラウンドではそもそもイベントが発生しない
 
-クライアントからポーリングしても無通信回避できるかどうかはかなり怪しい。。。
+<div class="fragment" data-fragment-index="1">
+*無通信回避に使えるかどうかはかなり怪しい。。。*
+</div>
 
 ---
 ### サーバーからポーリングした場合
 - PCブラウザはメッセージ着信時にただちにイベント処理される
-- iOSはバックグラウンド時はイベントが発生せずキューにためられる
+- iOSの動作は独特
+  - バックグラウンド時はイベントが発生せずキューにためられる
   - アクティブになった時にまとめてイベントが発生する
   - 切断時のWebSocket#oncloseイベントの発生もこのタイミング
   - キューがあふれた場合にどうなるかは定かではないが多分その前に接続が切れる
 - Androidはスリープしててもイベントを延々と処理し続ける
 
-困る
+<div class="fragment" data-fragment-index="1">
+*これまたビミョー。。。*
+</div>
 
 ---
 ### [PageVisibility API](https://developer.mozilla.org/ja/docs/Web/Guide/User_experience/Using_the_Page_Visibility_API)
 - ブラウザがアクティブであるかどうかは*document#hidden*で判定できる
 - ブラウザのアクティブ状態変更イベントは*document#visibilitychange*イベントでフックできる
   - iOSの場合はvisibilitychangeが発生しないのでwindow#pageshow/pagehideで代替
-- アクティブ状態によって処理を切り替えることは可能
-  - iOSは非アクティブの場合、何のイベントも発生しないので除外
-- アクティブ化した時に接続状態をチェックして再接続することも可能
-  - ただしトークン(またはCookieに保存したSessionId)がタイムアウトしている可能性はある
+- アクティブ状態によって処理を切り替えたり、アクティブ化した時に接続状態をチェックして再接続したりすることができる
 
-なんとなく使えそうな気はする
+<div class="fragment" data-fragment-index="1">
+*特にAndroidで有用*
+</div>
 
 ---
 ### ポーリング問題の結論
-- やらないのが一番いい
-- もしやるのであれば
-  - 対象がPCブラウザの場合はサーバーからポーリング
-  - 対象がスマホの場合はアクティブ時のみクライアントからポーリング
+- やらないのが一番いい<!-- .element: class="fragment" data-fragment-index="1" -->
+  - 50秒も無通信状態が続くのであれば再接続で十分<!-- .element: class="fragment" data-fragment-index="1" -->
+- もしやるのであれば。。。<!-- .element: class="fragment" data-fragment-index="2" -->
+  - 対象がPCブラウザの場合はサーバーからポーリングもアリ<!-- .element: class="fragment" data-fragment-index="2" -->
+  - 対象がスマホの場合はアクティブ時のみクライアントからポーリング<!-- .element: class="fragment" data-fragment-index="2" -->
 
+-->
+### イベント調査に使用したアプリ
+- 
 さらなるベストプラクティスを見つけたい人は[ここ]()でブラウザの挙動をチェックしよう
 
 ---
 ### まとめ
-- WebSocketは使い方によっては今までにないアプリを作れる可能性があります。
-- WebSocketを扱うためのインフラは既に十分に整っています。
-- しかしWebSocketプログラミングのためのノウハウ、デザインパターン、フレームワークなどはまだまだ未整備です。
-- Ajaxの代替としてWebSocketを使うのはアリです。
+- *WebSocketは面白い*
+  - WebSocketを扱うためのインフラは既に十分
+  - WebSocketプログラミングのためのノウハウ、デザインパターン、フレームワークなどはまだまだ未整備
+  - 発想次第で今までにないアプリが作れるかも
+- Ajaxの代替としてWebSocketを使うのはアリ
+  - WebSocketが、というよりクロージャの安全性が高い
+  - サーバーサイドの実装が楽
 
 そして今日説明したような内容を*なんとなくいい感じに*処理してくれるフレームワークが[ここ]()にあります。
 
