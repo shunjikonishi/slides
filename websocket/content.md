@@ -51,7 +51,7 @@
 - http://quizar.info/
 - ルーム内に出題者と回答者がいるクイズゲーム
 
-<iframe src="http://www.quizar.info/room/3/ranking" width="560" height="400" frameborder="1"></iframe>
+<iframe src="http://www.quizar.info/room/3/ranking" width="800" height="480" frameborder="1"></iframe>
 
 -->
 ### 紹介ビデオ
@@ -84,7 +84,7 @@
 - クイズアプリで、
 - 出題者、回答者、観覧者がいる状態で、
 - 出題者が送信したメッセージを、
-- 回答者が受信する
+- (サーバが加工して)回答者、観覧者に異なるメッセージを送信する
 
 <div class="padTop">
 シーケンスを図示せよ
@@ -103,11 +103,11 @@
 ---
 ### 常に間にルームを置いて考える
 
-<img src="images/withRoom.svg" style="background-color:#fff;border:none;">
+<img src="images/withRoom.svg" style="background-color:#fff;border:none;width:650px;">
 
 - Roomは単純なメッセージブロードキャスト機構
-- Serverが単一ホストの場合でも常にルームを介してブロードキャストする
-- 送信元の出題者と出題者は同じクライアントだが別のエンティティとして考える
+- Serverがすべて同一ホストだが接続毎にメッセージハンドラを持つ
+- ブロードキャストを受けたメッセージハンドラが接続先に何を返すか(あるいは無視するか)を判断
 
 <div class="padTop fragment" data-fragment-index="1">
 *このように考えることには2つのメリットがある*
@@ -117,8 +117,9 @@
 ### メリット1: スケールアウト
 - 接続数が増えた場合にサーバ台数を増やすことで対応可能となる
   - Herokuの場合はDyno数を増やすだけ
-- Room機能はRedisのPub/Subをそのまま利用できる
-- 逆にRoom概念が導入されていない場合に後からスケールアウトすることはほとんど不可能
+- ルーム機能はRedisのPub/Subをそのまま利用できる
+- 逆にルーム概念が導入されていない場合に後からスケールアウトすることはほとんど不可能
+  - 実際にはルーム毎にサーバを分けることが多い(ゲーム等)
 
 ---
 ### メリット2: シンプル
@@ -143,7 +144,7 @@ Roomの右側と左側のシーケンスを別に考えることができる
 - メリット
   - 高速
   - ステートを維持した連続リクエストが可能(Ex. インクリメンタルサーチ)
-  - *セキュリティ上のメリット*
+  - *一度接続が確立したらそれ以降のリクエストは安全*
 
 ---
 ### WebSocketとセキュリティ
@@ -153,7 +154,7 @@ Roomの右側と左側のシーケンスを別に考えることができる
 - WebSocketには*Same Origin Policyがない*ためどこからでも繋がる
   - 接続時にOriginヘッダを検証すべき
 - WebSocketリクエストにはCookieが付加される
-  - Cookieのみを頼りにしたクライアント確認はCSRFと同じ原理の攻撃が可能(CSWSH)
+  - Cookieのみを頼りにしたクライアント確認はCSRFと同じ原理の攻撃が可能
 - 通信内容を保護したい場合はwssを使用する
 
 ---
@@ -192,78 +193,88 @@ WebSocketがあることでリスク激増！
 ---
 ### トークン検証のシーケンス
 
-<img src="images/token.svg" style="background-color:#fff;">
+<img src="images/token.svg" style="background-color:#fff;float:left;">
+
+<div class="padTop">
+トークンが検証されるまでは他のリクエストはRejectする
+</div>
 
 ---
-### WebSocket vs. REST
+### ログインもWSで行うパターン
+
+<img src="images/login.svg" style="background-color:#fff;float:left;">
+
+<ul class="padTop" style="width: 40%;">
+  <li>SPAの場合はログインもWSでやるケースもある</li>
+  <li>この場合も再接続に備えて認証後はトークンを返す</li>
+  <li>Next Pageの送信はAjaxでも良いがWS接続が確立しているのでAjaxを使う理由はない</li>
+</ul>
+
+---
+### Ajaxの代替としてのWebSocket(再)
+*AjaxとWebSocketでは防御するポイントが異なる*
 ``` javascript
 $(document).ready(function() {
+  //WebSocketのインスタンスは必ずクロージャの中で生成する
   var ws = new WebSocket("wss://...");
-  //トークン検証後に任意の処理を記述
   ...
 });
 ```
-
-- WebSocketは通常*クロージャの中で生成される*ためそのインスタンスにはクロージャ外部からはアクセスできない
-  - 仮にXSSの脆弱性があったとしても既存のインスタンスにはアクセスできない
-  - トークンは検証毎に置き換えるので新たな接続を確立することもできない
-  - ということは*検証後のリクエストは常にValid*
-- 対してREST APIは常にオープン
-  - ステートレスであるがゆえの宿命
-  - リクエスト毎の検証が必須
-
----
-### WebSocket APIでの<br>セキュリティチェック
-- セッションの検証
-  - 接続時に検証すればその後は不要
-- Formパラメータの検証
-  - クライアント側でチェックしていれば不要
-  - ただしクライアント側にバグがある可能性を考慮して行うべき
-- CSRFチェック
-  - もちろん不要
+- クロージャの中で生成されたwsインスタンスには外部からはアクセスできない
+  - ChromeのWebConsoleなどからも不可
+  - トークン置換により新たな接続を確立することもできない
+- 認証済みのWSから送信される個別リクエストでは攻撃を想定した防御は不要
+  - 途中からそのインスタンスに割り込む方法はない(はず)
 
 <div class="alert alert-success" style="font-size:18pt;">
 感覚的にはREST APIがpublicメソッドなのに対し、privateメソッドのイメージ
 </div>
-
 
 ---
 ### 切断のパターンとその対処
 
 ---
 ### HerokuとWebSocket
+WebSocketを使うためにはlabsコマンドで有効化が必要
+
 ``` bash
 heroku labs:enable websockets -a xxxx
 ```
 
-- WebSocketを使うためにはlabsコマンドで有効化が必要
-- 1日に1度以上Dyno再起動があるのでそのタイミングで接続していたクライアントは*切れる*
-- 接続確立後も無通信状態が55秒続くと*切れる*
-- デプロイや環境変数の変更でもDynoが再起動して*切れる*
-- Herokuの良いところはスケールアウトに対応しやすいところ
+<div class="padTop">
+<p><em class="fragment" data-fragment="6" style="color:yellow;">あくまで</em>WebSocket観点でHerokuの特徴をあげると。。。</p>
+</div>
 
-<div class="padTop fragment">
-安定した接続を要求するアプリの場合はHerokuは向かない
+<ul>
+  <li class="fragment" data-fragment-index="1">1日に1度以上Dyno再起動があるのでそのタイミングで接続していたクライアントは<em>切れる</em></li>
+  <li class="fragment" data-fragment-index="2">接続確立後も無通信状態が55秒続くと<em>切れる</em></li>
+  <li class="fragment" data-fragment-index="3">デプロイや環境変数の変更でもDynoが再起動して<em>切れる</em></li>
+  <li class="fragment" data-fragment-index="4">スケールアウトが楽なところは素晴らしい！！！</li>
+</ul>
+
+<div class="padTop fragment" data-fragment-index="5">
+*安定した接続*を要求するアプリの場合はHerokuは向かない
 </div>
 
 ---
 ### クライアント側の切断要因
-- ブラウザ(タブ)を閉じる
-- 携帯端末のスリープ
-- スマホで長時間ブラウザをインアクティブにする
-- 通信環境不良／WiFiからの切断
-- 一方でAndroid Chromeのようにスリープしてもずっと切断されない端末もある<br>
-  (どの程度端末依存があるかは未知数)
+<ul>
+  <li class="fragment" data-fragment-index="1">ブラウザ(タブ)を閉じる</li>
+  <li class="fragment" data-fragment-index="2">スマホで長時間ブラウザをインアクティブにする</li>
+  <li class="fragment" data-fragment-index="3">通信環境不良／WiFiからの切断</li>
+  <li class="fragment" data-fragment-index="4">(ラップトップを含む)携帯端末のスリープ</li>
+  <li class="fragment" data-fragment-index="5">かと思ったらAndroid Chromeはスリープしてもしばらく切断されなかったり</li>
+</ul>
 
-<div class="padTop fragment">
-携帯端末をターゲットに含めるなら安定した接続を期待することはできない
+<div class="padTop fragment" data-fragment-index="6">
+携帯端末をターゲットに含めるならもはや*安定した接続*を期待することはできない
 </div>
 
 ---
 ### デプロイ
 - 近年アプリのリリース頻度は日に数回というレベルまである位に増える傾向
 - よっぽど人気のないアプリでもない限りリリース時に接続ユーザがいないという状況は期待できない
-  - リリースサイクルを分けるためにHttpサーバとWebSocketサーバを分離するという選択はあり得る
+  - リリースサイクルを分けるためにHttpサーバとWebSocketサーバを分離するという選択はあり得るがそれはまた別の話
 
 <div class="padTop fragment">
   <p>結局のところ*不測の切断に対する考慮はすべてのWebSocketアプリで必要*</p>
@@ -279,15 +290,16 @@ heroku labs:enable websockets -a xxxx
   - スマホで非アクティブの場合は再接続しない
 
 ---
-### 無通信回避のためのポーリング
-サーバからとクライアントからのどちらで行うべきか？
+### 無通信回避のための対処
+- サーバまたはクライアントからポーリング
+- サーバとクライアントのどちらから行うべきか？
 
 <div class="padTop">
   <p>実験: setIntervalで100ms毎に処理を実行</p>
   <hr>
   <table>
-    <tr><td>実行回数</td><td> - </td><td id="cntTimer" style="width:100px;"></td></tr>
-    <tr><td>経過時間</td><td> - </td><td id="timeTimer" style="width:100px;"></td></tr>
+    <tr><td>実行回数</td><td> - </td><td id="cntTimer" style="width:100px;"></td><td>回</td></tr>
+    <tr><td>経過時間</td><td> - </td><td id="timeTimer" style="width:100px;"></td><td>秒</td></tr>
   </table>
   <button id="resetTimer" class="btn">リセット</button>
 </div>
@@ -298,9 +310,10 @@ heroku labs:enable websockets -a xxxx
 - ブラウザのタブがバックグラウンドに回るだけで後回しにされる
 - Androidはバックグラウンドでの実行遅延が特に顕著
 - iOSはバックグラウンドではそもそもイベントが発生しない
+  - 多分イベントループが止まっている
 
-<div class="fragment" data-fragment-index="1">
-*無通信回避に使えるかどうかはかなり怪しい。。。*
+<div class="fragment padTop" data-fragment-index="1">
+*信用できねー。。。*
 </div>
 
 ---
@@ -313,9 +326,17 @@ heroku labs:enable websockets -a xxxx
   - キューがあふれた場合にどうなるかは定かではないが多分その前に接続が切れる
 - Androidはスリープしててもイベントを延々と処理し続ける
 
-<div class="fragment" data-fragment-index="1">
+<div class="fragment padTop" data-fragment-index="1">
 *これまたビミョー。。。*
 </div>
+
+---
+### 無通信対処の結論
+- やらないのが一番いい<!-- .element: class="fragment" data-fragment-index="1" -->
+  - 50秒も無通信状態が続くのであれば再接続で十分<!-- .element: class="fragment" data-fragment-index="1" -->
+- もしやるのであれば。。。<!-- .element: class="fragment" data-fragment-index="2" -->
+  - 対象がPCブラウザの場合はサーバーからポーリングもアリ<!-- .element: class="fragment" data-fragment-index="2" -->
+  - 対象がスマホの場合はアクティブ時のみクライアントからポーリング<!-- .element: class="fragment" data-fragment-index="2" -->
 
 ---
 ### [PageVisibility API](https://developer.mozilla.org/ja/docs/Web/Guide/User_experience/Using_the_Page_Visibility_API)
@@ -323,23 +344,12 @@ heroku labs:enable websockets -a xxxx
 - ブラウザのアクティブ状態変更イベントは*document#visibilitychange*イベントでフックできる
   - iOSの場合はvisibilitychangeが発生しないのでwindow#pageshow/pagehideで代替
 - アクティブ状態によって処理を切り替えたり、アクティブ化した時に接続状態をチェックして再接続したりすることができる
-
-<div class="fragment" data-fragment-index="1">
-*特にAndroidで有用*
-</div>
-
----
-### ポーリング問題の結論
-- やらないのが一番いい<!-- .element: class="fragment" data-fragment-index="1" -->
-  - 50秒も無通信状態が続くのであれば再接続で十分<!-- .element: class="fragment" data-fragment-index="1" -->
-- もしやるのであれば。。。<!-- .element: class="fragment" data-fragment-index="2" -->
-  - 対象がPCブラウザの場合はサーバーからポーリングもアリ<!-- .element: class="fragment" data-fragment-index="2" -->
-  - 対象がスマホの場合はアクティブ時のみクライアントからポーリング<!-- .element: class="fragment" data-fragment-index="2" -->
+- *特にAndroidで有用*
 
 -->
 ### イベント調査に使用したアプリ
-- 
-さらなるベストプラクティスを見つけたい人は[ここ]()でブラウザの挙動をチェックしよう
+- さらなるベストプラクティスを見つけたい人は色々試してみてください
+- http://flect-room-test.herokuapp.com/
 
 ---
 ### まとめ
@@ -350,8 +360,9 @@ heroku labs:enable websockets -a xxxx
 - Ajaxの代替としてWebSocketを使うのはアリ
   - WebSocketが、というよりクロージャの安全性が高い
   - サーバーサイドの実装が楽
-
-そして今日説明したような内容を*なんとなくいい感じに*処理してくれるフレームワークが[ここ]()にあります。
+- 今日説明したような内容を*なんとなくいい感じに*処理してくれるフレームワークを作ってます。
+  - クライアント(jQueryプラグイン) - [roomframework](https://github.com/shunjikonishi/roomframework)
+  - サーバ(Play2) - [roomframework-play](https://github.com/shunjikonishi/roomframework-play)
 
 ---
 ### 参考資料
