@@ -51,6 +51,7 @@
 ### Quizar
 - http://quizar.info/
 - ルーム内に出題者と回答者がいるクイズゲーム
+- *Ajaxを一切使っていない*WebSocketアプリケーション
 
 <iframe src="http://www.quizar.info/room/3/ranking" width="800" height="480" frameborder="1"></iframe>
 
@@ -127,8 +128,8 @@
 Roomの右側と左側のシーケンスを別に考えることができる
 
 <div>
-  <img src="images/roomLeft.svg" style="background-color:#fff;border:none;">
-  <img src="images/roomRight.svg" style="background-color:#fff;border:none;">
+  <img src="images/roomLeft.svg" style="background-color:#fff;border:none;height:280px;">
+  <img src="images/roomRight.svg" style="background-color:#fff;border:none;height:280px;">
 </div>
 
 <div class="padTop">

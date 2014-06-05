@@ -1,5 +1,498 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd"><svg xmlns="http://www.w3.org/2000/svg" width="280" height="276" xmlns:xlink="http://www.w3.org/1999/xlink"><source><![CDATA[title: From Room
-Room->Server:Broadcast
-Server->Client:Message
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="280"
+   height="276"
+   id="svg3275"
+   version="1.1"
+   inkscape:version="0.48.4 r"
+   sodipodi:docname="roomRight.svg">
+  <metadata
+     id="metadata3375">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1343"
+     inkscape:window-height="847"
+     id="namedview3373"
+     showgrid="false"
+     inkscape:zoom="1.7681159"
+     inkscape:cx="140"
+     inkscape:cy="138"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg3275" />
+  <source
+     id="source3277">title: From Room
+Room-&gt;Server:Broadcast
+Server-&gt;Client:Message
 Note over Server:or Dispose
-]]></source><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.0</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><path stroke-linecap="round" d="M5,0 0,2.5 5,5z" id="raphael-marker-block" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><marker id="raphael-marker-endblock55" markerHeight="5" markerWidth="5" orient="auto" refX="2.5" refY="2.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xlink:href="#raphael-marker-block" transform="rotate(180 2.5 2.5) scale(1,1)" stroke-width="1.0000" fill="#000" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker></defs><rect x="10" y="10" width="82" height="26" r="0" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="15" y="15" width="72" height="16" r="0" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="51" y="23" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#000000" font-size="16px" font-family="Andale Mono, monospace" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-size: 16px; line-height: normal; font-family: 'Andale Mono', monospace;"><tspan dy="6" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">From Room</tspan></text><rect x="10" y="46" width="52" height="36" r="0" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="20" y="56" width="32" height="16" r="0" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="36" y="64" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#000000" font-size="16px" font-family="Andale Mono, monospace" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-size: 16px; line-height: normal; font-family: 'Andale Mono', monospace;"><tspan dy="6" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Room</tspan></text><rect x="10" y="220" width="52" height="36" r="0" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="20" y="230" width="32" height="16" r="0" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="36" y="238" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#000000" font-size="16px" font-family="Andale Mono, monospace" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-size: 16px; line-height: normal; font-family: 'Andale Mono', monospace;"><tspan dy="6" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Room</tspan></text><path fill="none" stroke="#000000" d="M36,82L36,220" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="94" y="46" width="68" height="36" r="0" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="104" y="56" width="48" height="16" r="0" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="128" y="64" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#000000" font-size="16px" font-family="Andale Mono, monospace" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-size: 16px; line-height: normal; font-family: 'Andale Mono', monospace;"><tspan dy="6" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Server</tspan></text><rect x="94" y="220" width="68" height="36" r="0" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="104" y="230" width="48" height="16" r="0" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="128" y="238" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#000000" font-size="16px" font-family="Andale Mono, monospace" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-size: 16px; line-height: normal; font-family: 'Andale Mono', monospace;"><tspan dy="6" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Server</tspan></text><path fill="none" stroke="#000000" d="M128,82L128,220" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="182" y="46" width="68" height="36" r="0" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="192" y="56" width="48" height="16" r="0" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="216" y="64" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#000000" font-size="16px" font-family="Andale Mono, monospace" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-size: 16px; line-height: normal; font-family: 'Andale Mono', monospace;"><tspan dy="6" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Client</tspan></text><rect x="182" y="220" width="68" height="36" r="0" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="192" y="230" width="48" height="16" r="0" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="216" y="238" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#000000" font-size="16px" font-family="Andale Mono, monospace" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-size: 16px; line-height: normal; font-family: 'Andale Mono', monospace;"><tspan dy="6" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Client</tspan></text><path fill="none" stroke="#000000" d="M216,82L216,220" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="46" y="99" width="72" height="16" r="0" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="82" y="107" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#000000" font-size="16px" font-family="Andale Mono, monospace" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-size: 16px; line-height: normal; font-family: 'Andale Mono', monospace;"><tspan dy="6" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Broadcast</tspan></text><path fill="none" stroke="#000000" d="M36,118C36,118,103.8285710811615,118,123.00471495615784,118" stroke-width="2" marker-end="url(#raphael-marker-endblock55)" stroke-dasharray="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="144" y="135" width="56" height="16" r="0" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="172" y="143" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#000000" font-size="16px" font-family="Andale Mono, monospace" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-size: 16px; line-height: normal; font-family: 'Andale Mono', monospace;"><tspan dy="6" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Message</tspan></text><path fill="none" stroke="#000000" d="M128,154C128,154,192.36400365829468,154,211.00065120193176,154" stroke-width="2" marker-end="url(#raphael-marker-endblock55)" stroke-dasharray="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="83" y="174" width="90" height="26" r="0" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="88" y="179" width="80" height="16" r="0" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="128" y="187" text-anchor="middle" font="10px &quot;Arial&quot;" stroke="none" fill="#000000" font-size="16px" font-family="Andale Mono, monospace" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-size: 16px; line-height: normal; font-family: 'Andale Mono', monospace;"><tspan dy="6" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">or Dispose</tspan></text></svg>
+</source>
+  <desc
+     style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+     id="desc3279">Created with Raphaël 2.1.0</desc>
+  <defs
+     style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+     id="defs3281">
+    <path
+       stroke-linecap="round"
+       d="M5,0 0,2.5 5,5z"
+       id="raphael-marker-block"
+       style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" />
+    <marker
+       id="raphael-marker-endblock55"
+       markerHeight="5"
+       markerWidth="5"
+       orient="auto"
+       refX="2.5"
+       refY="2.5"
+       style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+      <use
+         xlink:href="#raphael-marker-block"
+         transform="rotate(180 2.5 2.5) scale(1,1)"
+         stroke-width="1.0000"
+         fill="#000"
+         stroke="none"
+         style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+         id="use3285" />
+    </marker>
+  </defs>
+  <rect
+     x="10.131499"
+     y="10.131499"
+     width="106.05667"
+     height="25.737001"
+     r="0"
+     rx="0"
+     ry="0"
+     style="fill:none;stroke:#000000;stroke-width:2.26299906"
+     id="rect3287" />
+  <rect
+     x="15"
+     y="15"
+     width="72"
+     height="16"
+     r="0"
+     rx="0"
+     ry="0"
+     fill="#ffffff"
+     stroke="none"
+     style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+     id="rect3289" />
+  <text
+     x="60.614754"
+     y="23"
+     font="10px &quot;Arial&quot;"
+     font-size="16px"
+     style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;line-height:normal;text-anchor:middle;fill:#000000;stroke:none;font-family:'&quot;Andale Mono&quot;, monospace'"
+     id="text3291">
+    <tspan
+       dy="6"
+       id="tspan3293">From Room</tspan>
+  </text>
+  <rect
+     x="10"
+     y="46"
+     width="52"
+     height="36"
+     r="0"
+     rx="0"
+     ry="0"
+     fill="none"
+     stroke="#000000"
+     stroke-width="2"
+     style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+     id="rect3295" />
+  <rect
+     x="20"
+     y="56"
+     width="32"
+     height="16"
+     r="0"
+     rx="0"
+     ry="0"
+     fill="#ffffff"
+     stroke="none"
+     style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+     id="rect3297" />
+  <text
+     x="36"
+     y="64"
+     text-anchor="middle"
+     font="10px &quot;Arial&quot;"
+     stroke="none"
+     fill="#000000"
+     font-size="16px"
+     font-family="Andale Mono, monospace"
+     style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-size: 16px; line-height: normal; font-family: 'Andale Mono', monospace;"
+     id="text3299">
+    <tspan
+       dy="6"
+       style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+       id="tspan3301">Room</tspan>
+  </text>
+  <rect
+     x="10"
+     y="220"
+     width="52"
+     height="36"
+     r="0"
+     rx="0"
+     ry="0"
+     fill="none"
+     stroke="#000000"
+     stroke-width="2"
+     style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+     id="rect3303" />
+  <rect
+     x="20"
+     y="230"
+     width="32"
+     height="16"
+     r="0"
+     rx="0"
+     ry="0"
+     fill="#ffffff"
+     stroke="none"
+     style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+     id="rect3305" />
+  <text
+     x="36"
+     y="238"
+     text-anchor="middle"
+     font="10px &quot;Arial&quot;"
+     stroke="none"
+     fill="#000000"
+     font-size="16px"
+     font-family="Andale Mono, monospace"
+     style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-size: 16px; line-height: normal; font-family: 'Andale Mono', monospace;"
+     id="text3307">
+    <tspan
+       dy="6"
+       style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+       id="tspan3309">Room</tspan>
+  </text>
+  <path
+     fill="none"
+     stroke="#000000"
+     d="M36,82L36,220"
+     stroke-width="2"
+     style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+     id="path3311" />
+  <rect
+     x="94"
+     y="46"
+     width="68"
+     height="36"
+     r="0"
+     rx="0"
+     ry="0"
+     fill="none"
+     stroke="#000000"
+     stroke-width="2"
+     style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+     id="rect3313" />
+  <rect
+     x="104"
+     y="56"
+     width="48"
+     height="16"
+     r="0"
+     rx="0"
+     ry="0"
+     fill="#ffffff"
+     stroke="none"
+     style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+     id="rect3315" />
+  <text
+     x="128"
+     y="64"
+     text-anchor="middle"
+     font="10px &quot;Arial&quot;"
+     stroke="none"
+     fill="#000000"
+     font-size="16px"
+     font-family="Andale Mono, monospace"
+     style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-size: 16px; line-height: normal; font-family: 'Andale Mono', monospace;"
+     id="text3317">
+    <tspan
+       dy="6"
+       style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+       id="tspan3319">Server</tspan>
+  </text>
+  <rect
+     x="94"
+     y="220"
+     width="68"
+     height="36"
+     r="0"
+     rx="0"
+     ry="0"
+     fill="none"
+     stroke="#000000"
+     stroke-width="2"
+     style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+     id="rect3321" />
+  <rect
+     x="104"
+     y="230"
+     width="48"
+     height="16"
+     r="0"
+     rx="0"
+     ry="0"
+     fill="#ffffff"
+     stroke="none"
+     style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+     id="rect3323" />
+  <text
+     x="128"
+     y="238"
+     text-anchor="middle"
+     font="10px &quot;Arial&quot;"
+     stroke="none"
+     fill="#000000"
+     font-size="16px"
+     font-family="Andale Mono, monospace"
+     style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-size: 16px; line-height: normal; font-family: 'Andale Mono', monospace;"
+     id="text3325">
+    <tspan
+       dy="6"
+       style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+       id="tspan3327">Server</tspan>
+  </text>
+  <path
+     fill="none"
+     stroke="#000000"
+     d="M128,82L128,220"
+     stroke-width="2"
+     style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+     id="path3329" />
+  <rect
+     x="182"
+     y="46"
+     width="68"
+     height="36"
+     r="0"
+     rx="0"
+     ry="0"
+     fill="none"
+     stroke="#000000"
+     stroke-width="2"
+     style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+     id="rect3331" />
+  <rect
+     x="192"
+     y="56"
+     width="48"
+     height="16"
+     r="0"
+     rx="0"
+     ry="0"
+     fill="#ffffff"
+     stroke="none"
+     style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+     id="rect3333" />
+  <text
+     x="216"
+     y="64"
+     text-anchor="middle"
+     font="10px &quot;Arial&quot;"
+     stroke="none"
+     fill="#000000"
+     font-size="16px"
+     font-family="Andale Mono, monospace"
+     style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-size: 16px; line-height: normal; font-family: 'Andale Mono', monospace;"
+     id="text3335">
+    <tspan
+       dy="6"
+       style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+       id="tspan3337">Client</tspan>
+  </text>
+  <rect
+     x="182"
+     y="220"
+     width="68"
+     height="36"
+     r="0"
+     rx="0"
+     ry="0"
+     fill="none"
+     stroke="#000000"
+     stroke-width="2"
+     style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+     id="rect3339" />
+  <rect
+     x="192"
+     y="230"
+     width="48"
+     height="16"
+     r="0"
+     rx="0"
+     ry="0"
+     fill="#ffffff"
+     stroke="none"
+     style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+     id="rect3341" />
+  <text
+     x="216"
+     y="238"
+     text-anchor="middle"
+     font="10px &quot;Arial&quot;"
+     stroke="none"
+     fill="#000000"
+     font-size="16px"
+     font-family="Andale Mono, monospace"
+     style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-size: 16px; line-height: normal; font-family: 'Andale Mono', monospace;"
+     id="text3343">
+    <tspan
+       dy="6"
+       style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+       id="tspan3345">Client</tspan>
+  </text>
+  <path
+     fill="none"
+     stroke="#000000"
+     d="M216,82L216,220"
+     stroke-width="2"
+     style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+     id="path3347" />
+  <rect
+     x="46"
+     y="99"
+     width="72"
+     height="16"
+     r="0"
+     rx="0"
+     ry="0"
+     fill="#ffffff"
+     stroke="none"
+     style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+     id="rect3349" />
+  <text
+     x="82"
+     y="107"
+     text-anchor="middle"
+     font="10px &quot;Arial&quot;"
+     stroke="none"
+     fill="#000000"
+     font-size="16px"
+     font-family="Andale Mono, monospace"
+     style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-size: 16px; line-height: normal; font-family: 'Andale Mono', monospace;"
+     id="text3351">
+    <tspan
+       dy="6"
+       style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+       id="tspan3353">Broadcast</tspan>
+  </text>
+  <path
+     fill="none"
+     stroke="#000000"
+     d="M36,118C36,118,103.8285710811615,118,123.00471495615784,118"
+     stroke-width="2"
+     marker-end="url(#raphael-marker-endblock55)"
+     stroke-dasharray="0"
+     style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+     id="path3355" />
+  <rect
+     x="144"
+     y="135"
+     width="56"
+     height="16"
+     r="0"
+     rx="0"
+     ry="0"
+     fill="#ffffff"
+     stroke="none"
+     style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+     id="rect3357" />
+  <text
+     x="172"
+     y="143"
+     text-anchor="middle"
+     font="10px &quot;Arial&quot;"
+     stroke="none"
+     fill="#000000"
+     font-size="16px"
+     font-family="Andale Mono, monospace"
+     style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-size: 16px; line-height: normal; font-family: 'Andale Mono', monospace;"
+     id="text3359">
+    <tspan
+       dy="6"
+       style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+       id="tspan3361">Message</tspan>
+  </text>
+  <path
+     fill="none"
+     stroke="#000000"
+     d="M128,154C128,154,192.36400365829468,154,211.00065120193176,154"
+     stroke-width="2"
+     marker-end="url(#raphael-marker-endblock55)"
+     stroke-dasharray="0"
+     style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+     id="path3363" />
+  <rect
+     x="83"
+     y="174"
+     width="90"
+     height="26"
+     r="0"
+     rx="0"
+     ry="0"
+     fill="none"
+     stroke="#000000"
+     stroke-width="2"
+     style="-webkit-tap-highlight-color:rgba;fill:#ffffff"
+     id="rect3365" />
+  <rect
+     x="88"
+     y="179"
+     width="80"
+     height="16"
+     r="0"
+     rx="0"
+     ry="0"
+     style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+     id="rect3367"
+     stroke="none"
+     fill="#ffffff" />
+  <text
+     x="128"
+     y="187"
+     text-anchor="middle"
+     font="10px &quot;Arial&quot;"
+     stroke="none"
+     fill="#000000"
+     font-size="16px"
+     font-family="Andale Mono, monospace"
+     style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-style: normal; font-variant: normal; font-weight: normal; font-size: 16px; line-height: normal; font-family: 'Andale Mono', monospace;"
+     id="text3369">
+    <tspan
+       dy="6"
+       style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+       id="tspan3371">or Dispose</tspan>
+  </text>
+</svg>
