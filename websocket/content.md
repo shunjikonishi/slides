@@ -107,7 +107,7 @@
 <img src="images/withRoom.svg" style="background-color:#fff;border:none;width:650px;">
 
 - Roomは単純なメッセージブロードキャスト機構
-- Serverがすべて同一ホストだが接続毎にメッセージハンドラを持つ
+- Serverはすべて同一ホストだが接続毎にメッセージハンドラを持つ
 - ブロードキャストを受けたメッセージハンドラが接続先に何を返すか(あるいは無視するか)を判断
 
 <div class="padTop fragment" data-fragment-index="1">
@@ -163,10 +163,10 @@ REST APIがコンビニレジなのに対し、専任担当者がつくイメー
 - 通信内容を保護したい場合はwssを使用する
 
 ---
-### 脱線
-WebSocketとXSSのコンボがやばすぎる件
+### WebSocketとXSSの<br>コンボがやばすぎる件
 
 ``` javascript
+//攻撃スクリプトの例
 var ws = new WebSocket("ws://...");
 ws.onmessage = function(event){
   //WebSocket経由でスクリプトを受信し
@@ -185,7 +185,7 @@ WebSocketがあることでリスク激増！
 
 ---
 ### 安全な接続の確立方法
-考え方はCSRF対策と同じ
+考え方はCSRF対策と同じで*ワンタイムトークン*を使う
 
 - ws接続を行うHTMLページを返す際にトークンを生成
   - CookieにSessionIdを付与する
@@ -225,11 +225,11 @@ $(document).ready(function() {
   ...
 });
 ```
-- クロージャの中で生成されたwsインスタンスには外部からはアクセスできない
-  - ChromeのWebConsoleなどからも不可
-  - トークン置換により新たな接続を確立することもできない
-- 認証済みのWSから送信される個別リクエストでは攻撃を想定した防御は不要
+- WebSocketの安全性は*クロージャ内で生成されたwsインスタンスには外部からはアクセスできない*ことによって担保される
   - 途中からそのインスタンスに割り込む方法はない(はず)
+  - ChromeのWebConsoleなどからもアクセス不可
+  - ワンタイムトークンの利用により新たな接続を確立することもできない
+  - 認証後の個別リクエストでは攻撃を想定した防御は不要
 
 <div class="alert alert-success" style="font-size:18pt;">
 REST APIがpublicメソッドなのに対し、privateメソッドのイメージ
@@ -252,9 +252,9 @@ heroku labs:enable websockets -a xxxx
 
 <ul>
   <li class="fragment" data-fragment-index="1">1日に1度以上Dyno再起動があるのでそのタイミングで接続していたクライアントは<em>切れる</em></li>
-  <li class="fragment" data-fragment-index="2">接続確立後も無通信状態が55秒続くと<em>切れる</em></li>
-  <li class="fragment" data-fragment-index="3">デプロイや環境変数の変更でもDynoが再起動して<em>切れる</em></li>
-  <li class="fragment" data-fragment-index="4">スケールアウトが楽なところは素晴らしい！！！</li>
+  <li class="fragment" data-fragment-index="1">接続確立後も無通信状態が55秒続くと<em>切れる</em></li>
+  <li class="fragment" data-fragment-index="1">デプロイや環境変数の変更でもDynoが再起動して<em>切れる</em></li>
+  <li class="fragment" data-fragment-index="1">スケールアウトが楽な点とRedisがすぐに使える点は素晴らしい！！！</li>
 </ul>
 
 <div class="padTop fragment" data-fragment-index="5">
@@ -264,15 +264,18 @@ heroku labs:enable websockets -a xxxx
 ---
 ### クライアント側の切断要因
 <ul>
-  <li class="fragment" data-fragment-index="1">ブラウザ(タブ)を閉じる</li>
-  <li class="fragment" data-fragment-index="2">スマホで長時間ブラウザをインアクティブにする</li>
-  <li class="fragment" data-fragment-index="3">通信環境不良／WiFiからの切断</li>
-  <li class="fragment" data-fragment-index="4">(ラップトップを含む)携帯端末のスリープ</li>
-  <li class="fragment" data-fragment-index="5">かと思ったらAndroid Chromeはスリープしてもしばらく切断されなかったり</li>
+  <li>ブラウザ(タブ)を閉じる</li>
+  <li>スマホで長時間ブラウザをインアクティブにする</li>
+  <li>通信環境不良／WiFiからの切断</li>
+  <li>(ラップトップを含む)携帯端末のスリープ
+    <ul>
+      <li class="fragment" data-fragment-index="1">と言いつつAndroid Chromeはスリープしてもしばらく切断されなかったり</li>
+    </ul>
+  </li>
 </ul>
 
-<div class="padTop fragment" data-fragment-index="6">
-携帯端末をターゲットに含めるならもはや*安定した接続*を期待することはできない
+<div class="padTop fragment" data-fragment-index="2">
+ユーザの操作はコントール不能であり、端末依存もあるので携帯端末をターゲットに含めるならもはや*安定した接続*を期待することはできない
 </div>
 
 ---
