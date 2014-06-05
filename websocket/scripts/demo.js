@@ -1,5 +1,5 @@
 function buildDemo() {
-	var endTime = new Date(2014, 5, 3, 21, 30, 0).getTime();
+	var endTime = new Date(2014, 5, 5, 17, 46, 0).getTime();
 	var slideCount = 32;
 
 	function makeTimer() {

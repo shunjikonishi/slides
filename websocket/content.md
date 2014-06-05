@@ -16,6 +16,7 @@
 - WebSocketの通信パターン
 - WebSocketとセキュリティ
 - 切断のパターンと対処
+- まとめ
   
 ---
 ### WebSocketアプリサンプル
@@ -146,6 +147,10 @@ Roomの右側と左側のシーケンスを別に考えることができる
   - ステートを維持した連続リクエストが可能(Ex. インクリメンタルサーチ)
   - *一度接続が確立したらそれ以降のリクエストは安全*
 
+<div class="alert alert-success" style="font-size:18pt;">
+REST APIがコンビニレジなのに対し、専任担当者がつくイメージ
+</div>
+
 ---
 ### WebSocketとセキュリティ
 
@@ -227,7 +232,7 @@ $(document).ready(function() {
   - 途中からそのインスタンスに割り込む方法はない(はず)
 
 <div class="alert alert-success" style="font-size:18pt;">
-感覚的にはREST APIがpublicメソッドなのに対し、privateメソッドのイメージ
+REST APIがpublicメソッドなのに対し、privateメソッドのイメージ
 </div>
 
 ---
@@ -277,7 +282,7 @@ heroku labs:enable websockets -a xxxx
   - リリースサイクルを分けるためにHttpサーバとWebSocketサーバを分離するという選択はあり得るがそれはまた別の話
 
 <div class="padTop fragment">
-  <p>結局のところ*不測の切断に対する考慮はすべてのWebSocketアプリで必要*</p>
+  <p>結局のところHerokuを使う、使わないに関わらず<br>*不測の切断に対する考慮は必要*</p>
 </div>
 
 
@@ -322,9 +327,9 @@ heroku labs:enable websockets -a xxxx
 - iOSの動作は独特
   - バックグラウンド時はイベントが発生せずキューにためられる
   - アクティブになった時にまとめてイベントが発生する
-  - 切断時のWebSocket#oncloseイベントの発生もこのタイミング
   - キューがあふれた場合にどうなるかは定かではないが多分その前に接続が切れる
 - Androidはスリープしててもイベントを延々と処理し続ける
+  - 数時間後に切れたりすることもあるが詳細は不明
 
 <div class="fragment padTop" data-fragment-index="1">
 *これまたビミョー。。。*
@@ -358,7 +363,7 @@ heroku labs:enable websockets -a xxxx
   - WebSocketプログラミングのためのノウハウ、デザインパターン、フレームワークなどはまだまだ未整備
   - 発想次第で今までにないアプリが作れるかも
 - Ajaxの代替としてWebSocketを使うのはアリ
-  - WebSocketが、というよりクロージャの安全性が高い
+  - Ajaxと併用はあまり意味がない
   - サーバーサイドの実装が楽
 - 今日説明したような内容を*なんとなくいい感じに*処理してくれるフレームワークを作ってます。
   - クライアント(jQueryプラグイン) - [roomframework](https://github.com/shunjikonishi/roomframework)
@@ -369,3 +374,6 @@ heroku labs:enable websockets -a xxxx
 - [WebSocketのバイナリメッセージを試したら、ウェブの未来が垣間見えた](http://blog.agektmr.com/2012/03/websocket.html)
 - [Webアプリ開発者のためのHTML5セキュリティ入門](http://www.slideshare.net/muneakinishimura/webhtml5-31749532)
 - [Cross-Site WebSocket Hijacking](http://www.christian-schneider.net/CrossSiteWebSocketHijacking.html)
+
+---
+### ご清聴ありがとうございました
