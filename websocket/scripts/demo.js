@@ -1,6 +1,6 @@
 function buildDemo() {
-	var endTime = new Date(2014, 5, 5, 17, 46, 0).getTime();
-	var slideCount = 32;
+	var endTime = new Date(2014, 5, 6, 18, 0, 0).getTime();
+	var slideCount = 33;
 
 	function makeTimer() {
 		var $timer = $("<div class='timer'><div class='clock'/><div class='perSlide'/></div>"),

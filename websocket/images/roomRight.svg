@@ -47,9 +47,9 @@
      inkscape:current-layer="svg3275" />
   <source
      id="source3277">title: From Room
-Room-&gt;Server:Broadcast
-Server-&gt;Client:Message
-Note over Server:or Dispose
+Room-&gt;Handler:Broadcast
+Handler-&gt;Client:Message
+Note over Handler:or Dispose
 </source>
   <desc
      style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
@@ -241,7 +241,7 @@ Note over Server:or Dispose
     <tspan
        dy="6"
        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
-       id="tspan3319">Server</tspan>
+       id="tspan3319">Handler</tspan>
   </text>
   <rect
      x="94"
@@ -282,7 +282,7 @@ Note over Server:or Dispose
     <tspan
        dy="6"
        style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
-       id="tspan3327">Server</tspan>
+       id="tspan3327">Handler</tspan>
   </text>
   <path
      fill="none"
