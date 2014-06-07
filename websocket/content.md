@@ -1,4 +1,5 @@
 ###Herokuで作る<br>WebSocketアプリケーション
+####リアルタイムだけじゃないWebSocketの利点と課題
 2014年6月9日  
 株式会社 FLECT  
 小西俊司
@@ -51,9 +52,9 @@
 ### Quizar
 - http://quizar.info/
 - ルーム内に出題者と回答者がいるクイズゲーム
-- *Ajaxを一切使っていない*WebSocketアプリケーション
+- *Ajaxを一切使っていない*
 
-<iframe src="http://www.quizar.info/room/3/ranking" width="800" height="480" frameborder="1"></iframe>
+<iframe src="http://www.quizar.info/room/3/ranking" width="800" height="460" frameborder="1"></iframe>
 
 -->
 ### 紹介ビデオ
@@ -156,6 +157,7 @@ Roomの右側と左側のシーケンスを別に考えることができる
   - WebSocket非対応端末がある(IE9以前、Android 4.3以前の標準ブラウザ)
 - メリット
   - 高速
+  - セッション維持
   - ステートを維持した連続リクエストが可能(Ex. インクリメンタルサーチ)
   - *一度接続が確立したらそれ以降のリクエストは安全*
 
@@ -219,13 +221,14 @@ WebSocketがあることでリスク激増！
 ---
 ### JavaScript
 *WebSocketのインスタンスは<br>
-必ずクロージャの中で生成する*
+必ずローカル変数として生成する*
 ``` javascript
 $(document).ready(function() {
   var ws = new WebSocket("wss://...");
   ...
 });
 ```
+- document#readyなどの関数内で生成
 - クロージャ内のwsインスタンスに外部からアクセスする方法はない
   - ChromeのWebConsoleなどからもアクセス不可
 - ワンタイムトークンの利用により新たな接続を確立することもできない
@@ -238,7 +241,7 @@ $(document).ready(function() {
   - public static
   - 全てのリクエストを検証することで安全を担保
 - WebSocket
-  - private
+  - 接続はpublic、その後はprivate
   - *接続時の身元確認*と、
   - 接続インスタンスに*外部からアクセスさせない*ことで安全を担保
   - 認証後の個別リクエストの検証は重要ではない
@@ -438,11 +441,23 @@ heroku labs:enable websockets -a xxxx
   - ノウハウ、フレームワーク等はほとんどない
   - 発想次第で今までにないアプリが作れるかも
 - Ajaxの代替としてWebSocketを使うのはアリ
-  - ステート維持、接続毎にHandlerを変更できるなどメリット多数
+  - ステート維持、privateな接続などは大きなメリット
   - サーバーサイドの実装が楽
-- 今日説明したような内容を*なんとなくいい感じに*処理してくれるフレームワークを作ってます。
-  - クライアント(jQueryプラグイン) - [roomframework](https://github.com/shunjikonishi/roomframework)
-  - サーバ(Play2) - [roomframework-play](https://github.com/shunjikonishi/roomframework-play)
+
+-->
+### おまけ
+- [roomframework](https://github.com/shunjikonishi/roomframework)(jQuery plugin)
+  - Ajaxライクな使用
+  - トークン処理
+  - 再接続
+  - イベント登録
+- [roomframework-play](https://github.com/shunjikonishi/roomframework-play)(Play2)
+  - コマンドルーティング
+  - ルームモデル
+
+<div class="padTop">
+などを*なんとなくいい感じに*処理してくれる<br>フレームワークを作ってます。
+</div>
 
 ---
 ### 参考資料
