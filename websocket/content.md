@@ -97,7 +97,7 @@
 ### 解答例
 素直に書くと以下のようになる
 
-<img src="images/simple.svg" style="background-color:#fff;border:none;width:600px;">
+<img src="images/simple.png" style="background-color:#fff;border:none;width:600px;">
 
 <div class="padTop">
 間違ってないが。。。
@@ -106,7 +106,7 @@
 ---
 ### 常に間にルームを置いて考える
 
-<img src="images/withRoom.svg" style="background-color:#fff;border:none;width:800px;">
+<img src="images/withRoom.png" style="background-color:#fff;border:none;width:800px;">
 
 -->
 ### ↑ の説明
@@ -140,8 +140,8 @@
 Roomの右側と左側のシーケンスを別に考えることができる
 
 <div>
-  <img src="images/roomLeft.svg" style="background-color:#fff;border:none;height:280px;">
-  <img src="images/roomRight.svg" style="background-color:#fff;border:none;height:280px;">
+  <img src="images/roomLeft.png" style="background-color:#fff;border:none;height:280px;">
+  <img src="images/roomRight.png" style="background-color:#fff;border:none;height:280px;">
 </div>
 
 <div class="padTop">
@@ -196,7 +196,7 @@ WebSocketがあることでリスク激増！
 ---
 ### ワンタイムトークンを使う
 
-<img src="images/token.svg" style="background-color:#fff;float:left;">
+<img src="images/token.png" style="background-color:#fff;float:left;">
 
 <ul class="padTop" style="width: 40%;">
   <li>考え方はCSRFと同じ</li>
@@ -210,7 +210,7 @@ WebSocketがあることでリスク激増！
 ---
 ### ログインもWSで行うパターン
 
-<img src="images/login.svg" style="background-color:#fff;float:left;">
+<img src="images/login.png" style="background-color:#fff;float:left;">
 
 <ul class="padTop" style="width: 40%;">
   <li>SPAの場合はログインもWSでやるケースもある</li>
