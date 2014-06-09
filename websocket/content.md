@@ -436,7 +436,7 @@ heroku labs:enable websockets -a xxxx
 
 ---
 ### まとめ
-- <em style="color:yellow">WebSocketは面白い</em>
+- *WebSocketは面白い*
   - WebSocketを扱うためのインフラは既に十分
   - ノウハウ、フレームワーク等はほとんどない
   - 発想次第で今までにないアプリが作れるかも
