@@ -1,0 +1,164 @@
+<svg width="808" height="398" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <![CDATA[participant 出題者
+participant Handler
+participant Room
+participant Handler
+participant 回答者
+participant Handler
+participant 観覧者
+participant Handler
+participant 出題者
+出題者->Handler:Message
+Handler->Room:Message
+Room->Handler:Broadcast
+Room->Handler:
+Room->Handler:
+Handler->回答者:Message
+Handler->観覧者:Message
+Note over Handler:Dispose]]>
+ <desc>Created with Raphaël 2.1.0</desc>
+ <defs>
+  <path id="raphael-marker-block" d="m5,0l-5,2.5l5,2.5l0,-5z" stroke-linecap="round"/>
+  <marker refY="2.5" refX="2.5" orient="auto" markerWidth="5" markerHeight="5" id="raphael-marker-endblock55">
+   <use id="svg_1" fill="#000" transform="rotate(180 2.5,2.5) scale(1) " xlink:href="#raphael-marker-block"/>
+  </marker>
+ </defs>
+ <g>
+  <title>Layer 1</title>
+  <rect id="svg_2" stroke-width="2" stroke="#000000" fill="none" height="36" width="68" y="20" x="10"/>
+  <rect id="svg_3" fill="#ffffff" height="16" width="48" y="30" x="20"/>
+  <text id="svg_4" font-style="normal" font-weight="normal" font-family="&#x27;Andale Mono', monospace" font-size="16px" fill="#000000" text-anchor="middle" y="38" x="44">
+   <tspan id="svg_5" dy="6">出題者</tspan>
+  </text>
+  <rect id="svg_6" stroke-width="2" stroke="#000000" fill="none" height="36" width="68" y="342" x="10"/>
+  <rect id="svg_7" fill="#ffffff" height="16" width="48" y="352" x="20"/>
+  <text id="svg_8" font-style="normal" font-weight="normal" font-family="&#x27;Andale Mono', monospace" font-size="16px" fill="#000000" text-anchor="middle" y="360" x="44">
+   <tspan id="svg_9" dy="6">出題者</tspan>
+  </text>
+  <path id="svg_10" stroke-width="2" d="m44,56l0,286" stroke="#000000" fill="none"/>
+  <rect id="svg_11" stroke-width="2" stroke="#000000" fill="#d4ffaa" height="36" width="68" y="20" x="98"/>
+  <rect id="svg_12" fill="#d4ffaa" height="16" width="48" y="30" x="108"/>
+  <text id="svg_13" font-style="normal" font-weight="normal" font-family="&#x27;Andale Mono', monospace" font-size="16px" fill="#000000" text-anchor="middle" y="38" x="132">
+   <tspan id="svg_14" dy="6">Handler</tspan>
+  </text>
+  <rect id="svg_15" stroke-width="2" stroke="#000000" fill="#d4ffaa" height="36" width="68" y="342" x="98"/>
+  <rect id="svg_16" fill="#d4ffaa" height="16" width="48" y="352" x="108"/>
+  <text id="svg_17" font-style="normal" font-weight="normal" font-family="&#x27;Andale Mono', monospace" font-size="16px" fill="#000000" text-anchor="middle" y="360" x="132">
+   <tspan id="svg_18" dy="6">Handler</tspan>
+  </text>
+  <path id="svg_19" stroke-width="2" d="m132,56l0,286" stroke="#000000" fill="none"/>
+  <rect id="svg_20" stroke-width="2" stroke="#000000" fill="#ff69b4" height="36" width="52" y="20" x="186"/>
+  <rect id="svg_21" fill="#ff69b4" height="16" width="32" y="30" x="196"/>
+  <text id="svg_22" font-style="normal" font-weight="normal" font-family="&#x27;Andale Mono', monospace" font-size="16px" fill="#000000" text-anchor="middle" y="38" x="212">
+   <tspan id="svg_23" dy="6">Room</tspan>
+  </text>
+  <rect id="svg_24" stroke-width="2" stroke="#000000" fill="#ff69b4" height="36" width="52" y="342" x="186"/>
+  <rect id="svg_25" fill="#ff69b4" height="16" width="32" y="352" x="196"/>
+  <text id="svg_26" font-style="normal" font-weight="normal" font-family="&#x27;Andale Mono', monospace" font-size="16px" fill="#000000" text-anchor="middle" y="360" x="212">
+   <tspan id="svg_27" dy="6">Room</tspan>
+  </text>
+  <path id="svg_28" stroke-width="2" d="m212,56l0,286" stroke="#000000" fill="none"/>
+  <rect id="svg_29" stroke-width="2" stroke="#000000" fill="#d4ffaa" height="36" width="68" y="20" x="270"/>
+  <rect id="svg_30" fill="#d4ffaa" height="16" width="48" y="30" x="280"/>
+  <text id="svg_31" font-style="normal" font-weight="normal" font-family="&#x27;Andale Mono', monospace" font-size="16px" fill="#000000" text-anchor="middle" y="38" x="304">
+   <tspan id="svg_32" dy="6">Handler</tspan>
+  </text>
+  <rect id="svg_33" stroke-width="2" stroke="#000000" fill="#d4ffaa" height="36" width="68" y="342" x="270"/>
+  <rect id="svg_34" fill="#d4ffaa" height="16" width="48" y="352" x="280"/>
+  <text id="svg_35" font-style="normal" font-weight="normal" font-family="&#x27;Andale Mono', monospace" font-size="16px" fill="#000000" text-anchor="middle" y="360" x="304">
+   <tspan id="svg_36" dy="6">Handler</tspan>
+  </text>
+  <path id="svg_37" stroke-width="2" d="m304,56l0,286" stroke="#000000" fill="none"/>
+  <rect id="svg_38" stroke-width="2" stroke="#000000" fill="none" height="36" width="68" y="20" x="358"/>
+  <rect id="svg_39" fill="#ffffff" height="16" width="48" y="30" x="368"/>
+  <text id="svg_40" font-style="normal" font-weight="normal" font-family="&#x27;Andale Mono', monospace" font-size="16px" fill="#000000" text-anchor="middle" y="38" x="392">
+   <tspan id="svg_41" dy="6">回答者</tspan>
+  </text>
+  <rect id="svg_42" stroke-width="2" stroke="#000000" fill="none" height="36" width="68" y="342" x="358"/>
+  <rect id="svg_43" fill="#ffffff" height="16" width="48" y="352" x="368"/>
+  <text id="svg_44" font-style="normal" font-weight="normal" font-family="&#x27;Andale Mono', monospace" font-size="16px" fill="#000000" text-anchor="middle" y="360" x="392">
+   <tspan id="svg_45" dy="6">回答者</tspan>
+  </text>
+  <path id="svg_46" stroke-width="2" d="m392,56l0,286" stroke="#000000" fill="none"/>
+  <rect id="svg_47" stroke-width="2" stroke="#000000" fill="#d4ffaa" height="36" width="68" y="20" x="446"/>
+  <rect id="svg_48" fill="#d4ffaa" height="16" width="48" y="30" x="456"/>
+  <text id="svg_49" font-style="normal" font-weight="normal" font-family="&#x27;Andale Mono', monospace" font-size="16px" fill="#000000" text-anchor="middle" y="38" x="480">
+   <tspan id="svg_50" dy="6">Handler</tspan>
+  </text>
+  <rect id="svg_51" stroke-width="2" stroke="#000000" fill="#d4ffaa" height="36" width="68" y="342" x="446"/>
+  <rect id="svg_52" fill="#d4ffaa" height="16" width="48" y="352" x="456"/>
+  <text id="svg_53" font-style="normal" font-weight="normal" font-family="&#x27;Andale Mono', monospace" font-size="16px" fill="#000000" text-anchor="middle" y="360" x="480">
+   <tspan id="svg_54" dy="6">Handler</tspan>
+  </text>
+  <path id="svg_55" stroke-width="2" d="m480,56l0,286" stroke="#000000" fill="none"/>
+  <rect id="svg_56" stroke-width="2" stroke="#000000" fill="none" height="36" width="68" y="20" x="534"/>
+  <rect id="svg_57" fill="#ffffff" height="16" width="48" y="30" x="544"/>
+  <text id="svg_58" font-style="normal" font-weight="normal" font-family="&#x27;Andale Mono', monospace" font-size="16px" fill="#000000" text-anchor="middle" y="38" x="568">
+   <tspan id="svg_59" dy="6">観覧者</tspan>
+  </text>
+  <rect id="svg_60" stroke-width="2" stroke="#000000" fill="none" height="36" width="68" y="342" x="534"/>
+  <rect id="svg_61" fill="#ffffff" height="16" width="48" y="352" x="544"/>
+  <text id="svg_62" font-style="normal" font-weight="normal" font-family="&#x27;Andale Mono', monospace" font-size="16px" fill="#000000" text-anchor="middle" y="360" x="568">
+   <tspan id="svg_63" dy="6">観覧者</tspan>
+  </text>
+  <path id="svg_64" stroke-width="2" d="m568,56l0,286" stroke="#000000" fill="none"/>
+  <rect id="svg_65" stroke-width="2" stroke="#000000" fill="#d4ffaa" height="36" width="68" y="20" x="622"/>
+  <rect id="svg_66" fill="#d4ffaa" height="16" width="48" y="30" x="632"/>
+  <text id="svg_67" font-style="normal" font-weight="normal" font-family="&#x27;Andale Mono', monospace" font-size="16px" fill="#000000" text-anchor="middle" y="38" x="656">
+   <tspan id="svg_68" dy="6">Handler</tspan>
+  </text>
+  <rect id="svg_69" stroke-width="2" stroke="#000000" fill="#d4ffaa" height="36" width="68" y="342" x="622"/>
+  <rect id="svg_70" fill="#d4ffaa" height="16" width="48" y="352" x="632"/>
+  <text id="svg_71" font-style="normal" font-weight="normal" font-family="&#x27;Andale Mono', monospace" font-size="16px" fill="#000000" text-anchor="middle" y="360" x="656">
+   <tspan id="svg_72" dy="6">Handler</tspan>
+  </text>
+  <path id="svg_73" stroke-width="2" d="m656,56l0,286" stroke="#000000" fill="none"/>
+  <rect id="svg_74" stroke-width="2" stroke="#000000" fill="none" height="36" width="68" y="20" x="710"/>
+  <rect id="svg_75" fill="#ffffff" height="16" width="48" y="30" x="720"/>
+  <text id="svg_76" font-style="normal" font-weight="normal" font-family="&#x27;Andale Mono', monospace" font-size="16px" fill="#000000" text-anchor="middle" y="38" x="744">
+   <tspan id="svg_77" dy="6">出題者</tspan>
+  </text>
+  <rect id="svg_78" stroke-width="2" stroke="#000000" fill="none" height="36" width="68" y="342" x="710"/>
+  <rect id="svg_79" fill="#ffffff" height="16" width="48" y="352" x="720"/>
+  <text id="svg_80" font-style="normal" font-weight="normal" font-family="&#x27;Andale Mono', monospace" font-size="16px" fill="#000000" text-anchor="middle" y="360" x="744">
+   <tspan id="svg_81" dy="6">出題者</tspan>
+  </text>
+  <path id="svg_82" stroke-width="2" d="m744,56l0,286" stroke="#000000" fill="none"/>
+  <rect id="svg_83" fill="#ffffff" height="16" width="56" y="73" x="60"/>
+  <text id="svg_84" font-style="normal" font-weight="normal" font-family="&#x27;Andale Mono', monospace" font-size="16px" fill="#000000" text-anchor="middle" y="81" x="88">
+   <tspan id="svg_85" dy="6">Message</tspan>
+  </text>
+  <path id="svg_86" stroke-dasharray="0" marker-end="url(#raphael-marker-endblock55)" stroke-width="2" d="m44,92c0,0 64.364014,0 83.000648,0" stroke="#000000" fill="none"/>
+  <rect id="svg_87" fill="#ffffff" height="16" width="56" y="109" x="144"/>
+  <text id="svg_88" font-style="normal" font-weight="normal" font-family="&#x27;Andale Mono', monospace" font-size="16px" fill="#000000" text-anchor="middle" y="117" x="172">
+   <tspan id="svg_89" dy="6">Message</tspan>
+  </text>
+  <path id="svg_90" stroke-dasharray="0" marker-end="url(#raphael-marker-endblock55)" stroke-width="2" d="m132,128c0,0 57.481689,0 74.995636,0" stroke="#000000" fill="none"/>
+  <rect id="svg_91" fill="#ffffff" height="16" width="72" y="145" x="222"/>
+  <text id="svg_92" font-style="normal" font-weight="normal" font-family="&#x27;Andale Mono', monospace" font-size="16px" fill="#000000" text-anchor="middle" y="153" x="258">
+   <tspan id="svg_93" dy="6">Broadcast</tspan>
+  </text>
+  <path id="svg_94" stroke-dasharray="0" marker-end="url(#raphael-marker-endblock55)" stroke-width="2" d="m212,164c0,0 67.828583,0 87.0047,0" stroke="#000000" fill="none"/>
+  <rect id="svg_95" fill="#ffffff" height="0" width="0" y="0" x="0"/>
+  <text id="svg_96" font-style="normal" font-weight="normal" font-family="&#x27;Andale Mono', monospace" font-size="16px" fill="#000000" text-anchor="middle" y="189" x="346"/>
+  <path id="svg_97" stroke-dasharray="0" marker-end="url(#raphael-marker-endblock55)" stroke-width="2" d="m212,184c0,0 226.315399,0 263.003265,0" stroke="#000000" fill="none"/>
+  <rect id="svg_98" fill="#ffffff" height="0" width="0" y="0" x="0"/>
+  <text id="svg_99" font-style="normal" font-weight="normal" font-family="&#x27;Andale Mono', monospace" font-size="16px" fill="#000000" text-anchor="middle" y="209" x="434"/>
+  <path id="svg_100" stroke-dasharray="0" marker-end="url(#raphael-marker-endblock55)" stroke-width="2" d="m212,204c0,0 390.132751,0 438.994629,0" stroke="#000000" fill="none"/>
+  <rect id="svg_101" fill="#ffffff" height="16" width="56" y="221" x="320"/>
+  <text id="svg_102" font-style="normal" font-weight="normal" font-family="&#x27;Andale Mono', monospace" font-size="16px" fill="#000000" text-anchor="middle" y="229" x="348">
+   <tspan id="svg_103" dy="6">Message</tspan>
+  </text>
+  <path id="svg_104" stroke-dasharray="0" marker-end="url(#raphael-marker-endblock55)" stroke-width="2" d="m304,240c0,0 64.364014,0 83.000641,0" stroke="#000000" fill="none"/>
+  <rect id="svg_105" fill="#ffffff" height="16" width="56" y="257" x="496"/>
+  <text id="svg_106" font-style="normal" font-weight="normal" font-family="&#x27;Andale Mono', monospace" font-size="16px" fill="#000000" text-anchor="middle" y="265" x="524">
+   <tspan id="svg_107" dy="6">Message</tspan>
+  </text>
+  <path id="svg_108" stroke-dasharray="0" marker-end="url(#raphael-marker-endblock55)" stroke-width="2" d="m480,276c0,0 64.364014,0 83.000671,0" stroke="#000000" fill="none"/>
+  <rect id="svg_109" stroke-width="2" stroke="#000000" fill="#ffffff" height="26" width="66" y="296" x="623"/>
+  <rect id="svg_110" fill="#ffffff" height="16" width="56" y="301" x="628"/>
+  <text id="svg_111" font-style="normal" font-weight="normal" font-family="&#x27;Andale Mono', monospace" font-size="16px" fill="#000000" text-anchor="middle" y="309" x="656">
+   <tspan id="svg_112" dy="6">Dispose</tspan>
+  </text>
+ </g>
+</svg>

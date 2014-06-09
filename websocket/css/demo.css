@@ -1,0 +1,33 @@
+.timer {
+	position: fixed;
+	right: 10px;
+	top: 10px;
+	font-weight: bold;
+}
+
+.clock {
+  text-align: right;
+  font-size: 36px;
+}
+
+.perSlide {
+  font-size: 18px;
+}
+
+#pad2 {
+	cursor: url("http://static.thomasjbradley.ca/signature-pad/pen.cur") 16 16, crosshair;
+	border: 1px solid #ccc;
+	background-color: #fff;
+}
+.color {
+	width: 25px;
+	height: 25px;
+	margin-left: 5px;
+	float: left;
+}
+.selected {
+	border: 1px solid; #000000;
+}
+
+code.javascript .comment { color: yellow;}
+
