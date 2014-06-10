@@ -3,9 +3,9 @@
 2014年6月9日  
 株式会社 FLECT  
 小西俊司
+<iframe allowtransparency="true" frameborder="0" scrolling="no" style="width:130px; height:20px;" src="http://platform.twitter.com/widgets/tweet_button.html?url=http%3A%2F%2Fbit.ly%2F1kZfyuF&amp;text=Heroku%E3%81%A7%E4%BD%9C%E3%82%8BWebSocket%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3&amp;lang=ja&amp;count=horizontal"> </iframe>  
 <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fshunjikonishi.github.io%2Fslides%2Fwebsocket%2Findex.html&amp;width&amp;layout=standard&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=80&amp;appId=336799126451529" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:80px;" allowTransparency="true"> </iframe>  
 
-<iframe allowtransparency="true" frameborder="0" scrolling="no" style="width:130px; height:20px;" src="http://platform.twitter.com/widgets/tweet_button.html?url=URL（UTF-8でエンコード）&amp;Heroku%E3%81%A7%E4%BD%9C%E3%82%8B%3Cbr%3EWebSocket%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3&amp;via=shunjikonishi&amp;lang=ja&amp;count=horizontal"> </iframe>  
 
 
 ---
