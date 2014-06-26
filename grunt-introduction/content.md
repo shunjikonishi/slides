@@ -257,7 +257,8 @@ foo, hoge fuga
 ### Herokuで使う場合
 - package.jsonがあるとnode.jsアプリと判定されるため、Play等と併用する場合は*環境変数でBUILDPACK_URLを明示*する必要がある
 - buildpackではGruntタスクは実行されないため、連結、MinifyしたファイルもGit管理する
-  - 時間が取れたらbuildpack-multiと併用して、build時にGruntタスクを実行するbuildpackを作りたいと思っている
+  - 時間が取れたらbuildpack-multiと併用して、build時にGruntタスクを実行するbuildpackを作りたいと思っている<br>
+    作りました。 → [heroku-buildpack-with-grunt-task](https://github.com/shunjikonishi/heroku-buildpack-with-grunt-task)
 
 ---
 ### SublimeText
