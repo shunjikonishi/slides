@@ -8,9 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>Grunt超入門</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/reveal.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/theme/serif.css" id="theme">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/lib/css/zenburn.min.css">
-  <link rel="stylesheet" href="../css/custom.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/theme/sky.css" id="theme">
     <!-- Include the appropriate print stylesheet -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <script>
@@ -20,6 +18,11 @@
     link.href = window.location.search.match( /print-pdf/gi ) ? 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/css/print/pdf.min.css' : '';
     document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
+<style>
+h1, h2, h3 {
+  text-transform: none!important;
+}
+</style>
 </head>
 <body>
   <!--[if lt IE 7]>
@@ -28,7 +31,7 @@
   <div class="reveal">
     <div class="slides">
 
-      <section data-markdown="content.md" data-separator="^---" data-vertical="^--"></section>
+      <section data-markdown="content.md" data-separator="^---" data-separator-vertical="^-->"></section>
 
     <div>
   </div>
