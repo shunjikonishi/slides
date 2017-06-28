@@ -15,7 +15,7 @@
 ![ブック一覧](images/codeprep1.png)
 
 -->
-![リーダー](images/codeprep3.png)
+![リーダー](images/codeprep5.png)
 
 ---
 ### RustのBook
@@ -40,6 +40,7 @@
 ![Rust2](images/rust_joke.png)
 
 - "🥚"を"🍚"に、"🥓"を"🐟"に置換する
+- 実行結果は "🍚🐟🍚🐟🍚"
 
 ---
 ### ブックリリース履歴
@@ -54,9 +55,10 @@
   - <span style="color:red;">次の予定はない</span> <!-- .element: class="fragment" data-fragment-index="1" -->
 ---
 ### 何故なら読まれてないから。。。
-- 一番人気のブック(HTML5)の50分の1以下
+- 一番人気のブック(HTML5)のx0分の1以下
 - Scalaも似たようなもの。。。
   - (今週はScalaの方がちょっと人気)
+- 初心者向けのサイトとして紹介されることが多いため仕方のない側面もあるがCODEPREPが価値を提供する対象は決して初心者のみではない。
 
 ---
 ### 大事なこと
