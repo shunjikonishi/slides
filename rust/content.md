@@ -4,7 +4,7 @@
 ![social](images/social_icon.jpg)
 - @shunjikonishi
 - 株式会社 Givery エンジニア
-  - Services: CODEPREP, code-check
+  - Services: CODEPREP, codecheck
 - 使用言語: Scala, Java, JS, TypeScript
 - Rust歴: 3ヶ月
   - Rust Meetup参加2回目
@@ -24,7 +24,7 @@
 
 ---
 ### 書いた人
-![Brian](images/bschwind.png)
+<img src="images/bschwind.png" style="width:400px;height:500px;"/>
 
 ---
 ### はじめてのRust
@@ -39,8 +39,7 @@
 ### アメリカンジョーク
 ![Rust2](images/rust_joke.png)
 
-- "🥚"を"🍚"に、"🥓"を"🐟"に置換する
-- 実行結果は "🍚🐟🍚🐟🍚"
+- 卵をご飯に、ベーコンを魚に置換する
 
 ---
 ### ブックリリース履歴
