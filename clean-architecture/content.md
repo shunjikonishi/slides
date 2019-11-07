@@ -145,6 +145,7 @@ IN and OUT can be multiple
 ### We can combine multiple usecases
 - We can use multiple usecases in controller
 - First usecase output can be next usecase input
+- Don't use other usecase in usecase.
 
 ---
 ### Search is out of clean architecture
